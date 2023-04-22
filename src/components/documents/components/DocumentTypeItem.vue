@@ -5,7 +5,7 @@
         </DefaultButtons>
         <DefaultTitle tag="h3" class="documents-type-item__title"> Обязательные для трудоустройства </DefaultTitle>
         <DefaultDot class="ml-16" :dots-color="['#FF238D', '#FFB800', '#FF8D23']" />
-        <DefaultDescription class="ml-15 mr-60 documents-type-item__description">
+        <DefaultDescription class="ml-15 documents-type-item__description">
             <span>
                 Документы, без которых невозможно трудоустройство человека на какую бы то ни было должность в компании
                 вне зависимости от граж
@@ -36,8 +36,6 @@ export default {
     background-color: #fff
     display: flex
     align-items: center
-    .mr-60
-        margin-right: 60px
     &__button-collapse
         padding: 0
         width: 22px
@@ -55,6 +53,7 @@ export default {
         flex-grow: 1
         overflow: hidden
         position: relative
+        margin-right: 60px
         &::after
             content: ""
             position: absolute

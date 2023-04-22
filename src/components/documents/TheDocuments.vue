@@ -7,6 +7,7 @@
             <DocumentsTypeItem />
             <DocumentsTypeItem />
             <DocumentItem />
+            <DocumentItem />
         </div>
     </div>
 </template>
