@@ -1,12 +1,12 @@
 <script setup>
-import TheDocuments from "@/components/documents/TheDocuments.vue"
+import TheDocuments from '@/components/documents/TheDocuments.vue'
 </script>
 <template>
-    <main class="container">
+    <main class="main-page">
         <TheDocuments />
     </main>
 </template>
 <style lang="sass" scoped>
-.container
+.main-page
     padding: 38px 30px
 </style>

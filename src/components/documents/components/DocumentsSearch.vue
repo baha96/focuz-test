@@ -14,13 +14,13 @@
 </template>
 
 <script>
-import LupeIcon from "@/components/icons/LupeIcon.vue";
-import CloseIcon from "@/components/icons/CloseIcon.vue";
-import DefaultSeparator from "@/components/ui/DefaultSeparator.vue";
+import LupeIcon from '@/components/icons/LupeIcon.vue'
+import CloseIcon from '@/components/icons/CloseIcon.vue'
+import DefaultSeparator from '@/components/ui/DefaultSeparator.vue'
 
 export default {
-    name: "DocumentsSearch",
-    components: {DefaultSeparator, CloseIcon, LupeIcon}
+    name: 'DocumentsSearch',
+    components: { DefaultSeparator, CloseIcon, LupeIcon },
 }
 </script>
 
@@ -53,5 +53,4 @@ export default {
         border: 0
         width: 16px
         height: 17px
-
 </style>

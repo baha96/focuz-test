@@ -1,8 +1,6 @@
 <template>
     <div class="documents-head">
-        <h1 class="documents-head__title">
-            Документы
-        </h1>
+        <DefaultTitle tag="h1" class="documents-head__title"> Документы </DefaultTitle>
         <div class="documents-head__actions">
             <DefaultButtons>
                 <BookmarkIcon />
@@ -20,13 +18,14 @@
 </template>
 
 <script>
-import DefaultButtons from "@/components/ui/buttons/DefaultButtons.vue";
-import PlusIcon from "@/components/icons/PlusIcon.vue";
-import BookmarkIcon from "@/components/icons/BookmarkIcon.vue";
+import DefaultButtons from '@/components/ui/buttons/DefaultButtons.vue'
+import PlusIcon from '@/components/icons/PlusIcon.vue'
+import BookmarkIcon from '@/components/icons/BookmarkIcon.vue'
+import DefaultTitle from '@/components/ui/typography/DefaultTitle.vue'
 
 export default {
-    name: "DocumentsHead",
-    components: {BookmarkIcon, PlusIcon, DefaultButtons}
+    name: 'DocumentsHead',
+    components: { DefaultTitle, BookmarkIcon, PlusIcon, DefaultButtons },
 }
 </script>
 
@@ -36,9 +35,7 @@ export default {
     justify-content: space-between
     align-items: center
     &__title
-        font-weight: 500
         font-size: 22px
-        line-height: 108%
     &__actions
         display: flex
         align-items: center

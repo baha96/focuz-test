@@ -4,13 +4,13 @@
 
 <script>
 export default {
-    name: "DefaultSeparator",
+    name: 'DefaultSeparator',
     props: {
         height: {
             type: Number,
-            default: 1
-        }
-    }
+            default: 1,
+        },
+    },
 }
 </script>
 

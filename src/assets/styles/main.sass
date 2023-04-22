@@ -2,7 +2,7 @@
 @import "../fonts/fonts"
 
 body
-    font-family: "FiraSans", serif
+    font-family: "FiraSans"
     font-weight: 400
     word-break: break-word
     word-wrap: break-word
@@ -14,6 +14,9 @@ body
     margin: 0
 button
     cursor: pointer
+.container
+    max-width: 1190px
+    width: 100%
 
 
 $marginCount: 30
@@ -30,3 +33,24 @@ $marginCount: 30
 @for $margin from 1 through $marginCount
     .mr-#{$margin}
         margin-right: #{$margin}px
+@for $padding from 1 through $marginCount
+    .pt-#{$padding}
+        padding-top: #{$padding}px
+@for $padding from 1 through $marginCount
+    .pb-#{$padding}
+        padding-bottom: #{$padding}px
+@for $padding from 1 through $marginCount
+    .pl-#{$padding}
+        padding-left: #{$padding}px
+@for $padding from 1 through $marginCount
+    .pr-#{$padding}
+        padding-right: #{$padding}px
+
+.ml-auto
+    margin-left: auto
+.mr-auto
+    margin-right: auto
+.flex-center
+    display: flex
+    align-items: center
+    justify-content: center
