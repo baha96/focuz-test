@@ -2,9 +2,7 @@
     <div class="documents-item">
         <DefaultDescription class="documents-item__title">Тестовое задание кандидата</DefaultDescription>
         <DefaultDot class="ml-20" :dots-color="['#00C2FF']" />
-        <DefaultDescription class="ml-15 documents-item__required">
-            Обязательный
-        </DefaultDescription>
+        <DefaultDescription class="ml-15 documents-item__required"> Обязательный </DefaultDescription>
         <DefaultDot :dots-color="['#0066FF', '#8E9CBB']" class="ml-15" />
         <DefaultDescription class="documents-item__text ml-15">
             <span>
@@ -16,13 +14,13 @@
 </template>
 
 <script>
-import DefaultDescription from "@/components/ui/typography/DefaultDescription.vue";
-import DefaultDot from "@/components/ui/DefaultDot.vue";
-import DocumentItemActions from "@/components/documents/components/DocumentItemActions.vue";
+import DefaultDescription from '@/components/ui/typography/DefaultDescription.vue'
+import DefaultDot from '@/components/ui/DefaultDot.vue'
+import DocumentItemActions from '@/components/documents/components/DocumentItemActions.vue'
 
 export default {
     name: 'DocumentItem',
-    components: {DocumentItemActions, DefaultDot, DefaultDescription},
+    components: { DocumentItemActions, DefaultDot, DefaultDescription },
 }
 </script>
 
