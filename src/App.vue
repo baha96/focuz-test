@@ -1,5 +1,3 @@
 <template>
-    <main>
-        awfawf
-    </main>
+    <main>awfawf</main>
 </template>
