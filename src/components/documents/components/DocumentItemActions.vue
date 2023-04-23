@@ -6,7 +6,7 @@
         <DefaultButtons class="document-item-actions__button flex-center mr-10">
             <DeleteIcon />
         </DefaultButtons>
-        <DefaultButtons class="document-item-actions__button flex-center">
+        <DefaultButtons class="document-item-actions__button flex-center" :class="[moveHandleClassName]">
             <MoveIcon />
         </DefaultButtons>
     </div>
@@ -21,6 +21,12 @@ import MoveIcon from '@/components/icons/MoveIcon.vue'
 export default {
     name: 'DocumentItemActions',
     components: { MoveIcon, DeleteIcon, EditIcon, DefaultButtons },
+    props: {
+        moveHandleClassName: {
+            type: String,
+            default: 'drag-handle',
+        },
+    },
 }
 </script>
 

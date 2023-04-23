@@ -1,15 +1,19 @@
 <template>
-    <div class="documents-item">
-        <DefaultDescription class="documents-item__title">Тестовое задание кандидата</DefaultDescription>
-        <DefaultDot class="ml-20" :dots-color="['#00C2FF']" />
-        <DefaultDescription class="ml-15 documents-item__required"> Обязательный </DefaultDescription>
-        <DefaultDot :dots-color="['#0066FF', '#8E9CBB']" class="ml-15" />
+    <div v-if="item" class="documents-item">
+        <DefaultDescription class="documents-item__title">
+            {{ item.name }}
+        </DefaultDescription>
+        <DefaultDot v-if="item.isRequired" class="ml-20" :dots-color="['#00C2FF']" />
+        <DefaultDescription v-if="item.isRequired" class="ml-15 documents-item__required">
+            Обязательный
+        </DefaultDescription>
+        <DefaultDot v-if="item.dotsColor" :dots-color="item.dotsColor" class="ml-15" />
         <DefaultDescription class="documents-item__text ml-15">
             <span>
-                Россия, Белоруссия, Украина, администратор филиала, повар-сушист, повар-пиццмейкер, повар горячего цеха
+                {{ item.description }}
             </span>
         </DefaultDescription>
-        <DocumentItemActions class="ml-auto" />
+        <DocumentItemActions class="ml-auto" :moveHandleClassName="moveHandleClassName" />
     </div>
 </template>
 
@@ -21,6 +25,16 @@ import DocumentItemActions from '@/components/documents/components/DocumentItemA
 export default {
     name: 'DocumentItem',
     components: { DocumentItemActions, DefaultDot, DefaultDescription },
+    props: {
+        item: {
+            type: Object,
+            default: null,
+        },
+        moveHandleClassName: {
+            type: String,
+            default: 'drag-handle',
+        },
+    },
 }
 </script>
 
