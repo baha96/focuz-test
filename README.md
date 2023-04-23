@@ -1,3 +1,7 @@
+# Demo
+
+See [Netlify.app](https://main--gleaming-nougat-93178e.netlify.app/).
+
 # foquz-test
 
 This template should help get you started developing with Vue 3 in Vite.
