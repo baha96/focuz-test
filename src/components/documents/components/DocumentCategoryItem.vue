@@ -62,7 +62,7 @@ export default {
             default: null,
         },
     },
-    emits: ["drop:change"],
+    emits: ['drop:change'],
     data() {
         return {
             display: false,
@@ -70,7 +70,7 @@ export default {
     },
     methods: {
         onDrop(dropResult) {
-            this.$emit("drop:change", dropResult)
+            this.$emit('drop:change', dropResult)
         },
     },
 }

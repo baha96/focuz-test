@@ -12,7 +12,7 @@ export default {
         },
         color: {
             type: String,
-            default: "#DFE4EF",
+            default: '#DFE4EF',
         },
     },
 }

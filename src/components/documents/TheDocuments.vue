@@ -36,9 +36,10 @@ import { Container, Draggable } from 'vue3-smooth-dnd'
 const searchText = ref(null)
 const searchDocuments = ref([])
 const items = ref(documents)
-const contents = computed(() => searchText.value ? searchDocuments.value : items.value)
-let documentTempDropItem = null, searchTimer = null
-function onDropInCategory (dragResult, categoryIndex = 0) {
+const contents = computed(() => (searchText.value ? searchDocuments.value : items.value))
+let documentTempDropItem = null,
+    searchTimer = null
+function onDropInCategory(dragResult, categoryIndex = 0) {
     const { removedIndex, addedIndex } = dragResult
     if (removedIndex === null && addedIndex === null) return items
 
@@ -60,7 +61,7 @@ function onDrop(dragResult) {
 
     items.value = changePositionArr(items.value, dragResult)
 }
-function changePositionArr(arr = [], dragResult ) {
+function changePositionArr(arr = [], dragResult) {
     const { removedIndex, addedIndex, payload } = dragResult
     const result = [...arr]
     let itemToAdd = payload
@@ -87,7 +88,7 @@ function isNeedMargin(isGroup, idx) {
         margin += 'mb-14'
     }
     if (isGroup && prevContent && prevContent.category === documentTypes.document) {
-        margin += " mt-14"
+        margin += ' mt-14'
     }
     if (
         !isGroup &&
@@ -134,7 +135,7 @@ export default {
     components: {
         DocumentsCategoryItem,
         DocumentItem,
-    }
+    },
 }
 </script>
 

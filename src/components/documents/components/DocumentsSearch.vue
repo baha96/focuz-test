@@ -24,8 +24,8 @@ export default {
     props: {
         searchText: {
             type: String,
-            default: null
-        }
+            default: null,
+        },
     },
     computed: {
         model: {
@@ -33,10 +33,10 @@ export default {
                 return this.searchText
             },
             set(val) {
-                this.$emit("search", val)
-            }
-        }
-    }
+                this.$emit('search', val)
+            },
+        },
+    },
 }
 </script>
 
