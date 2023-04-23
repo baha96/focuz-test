@@ -4,12 +4,12 @@
             <label for="documents-search-input" class="mr-12">
                 <LupeIcon />
             </label>
-            <input id="documents-search-input" type="text" />
-            <button type="button" class="ml-12">
+            <input id="documents-search-input" type="text" placeholder="Поиск" v-model="model" />
+            <button v-if="searchText" type="button" class="ml-12" @click="$emit('search', null)">
                 <CloseIcon />
             </button>
         </div>
-        <DefaultSeparator />
+        <DefaultSeparator :color="searchText ? '#0066FF' : '#DFE4EF'" />
     </div>
 </template>
 
@@ -21,6 +21,22 @@ import DefaultSeparator from '@/components/ui/DefaultSeparator.vue'
 export default {
     name: 'DocumentsSearch',
     components: { DefaultSeparator, CloseIcon, LupeIcon },
+    props: {
+        searchText: {
+            type: String,
+            default: null
+        }
+    },
+    computed: {
+        model: {
+            get() {
+                return this.searchText
+            },
+            set(val) {
+                this.$emit("search", val)
+            }
+        }
+    }
 }
 </script>
 
@@ -45,6 +61,12 @@ export default {
         line-height: 108%
         color: #000000
         padding: 0
+        &::placeholder
+            font-style: italic
+            font-weight: 400
+            font-size: 15px
+            line-height: 108%
+            color: #8E9CBB
     button
         display: flex
         align-items: center

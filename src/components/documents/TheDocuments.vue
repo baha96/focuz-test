@@ -1,7 +1,7 @@
 <template>
     <div class="documents">
         <DocumentsHead class="mb-23" />
-        <DocumentsSearch class="mb-19" />
+        <DocumentsSearch class="mb-19" :search-text="searchText" @search="getSearchText" />
         <Container
             class="container documents__wrapper"
             @drop="onDrop($event)"
@@ -12,7 +12,7 @@
             dropClass="document-selected-drop"
         >
             <Draggable
-                v-for="(content, idx) in items"
+                v-for="(content, idx) in contents"
                 :key="'documents-' + content.id"
                 class="documents__group"
                 :class="isNeedMargin(content.category === documentTypes.group, idx)"
@@ -27,14 +27,17 @@
     </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import DocumentsHead from '@/components/documents/components/DocumentsHead.vue'
 import DocumentsSearch from '@/components/documents/components/DocumentsSearch.vue'
 import { documents } from '@/components/documents/mock/documents'
 import { documentTypes } from '@/components/documents/mock/documentTypes'
 import { Container, Draggable } from 'vue3-smooth-dnd'
+const searchText = ref(null)
+const searchDocuments = ref([])
 const items = ref(documents)
-let documentTempDropItem = null
+const contents = computed(() => searchText.value ? searchDocuments.value : items.value)
+let documentTempDropItem = null, searchTimer = null
 function onDropInCategory (dragResult, categoryIndex = 0) {
     const { removedIndex, addedIndex } = dragResult
     if (removedIndex === null && addedIndex === null) return items
@@ -96,6 +99,31 @@ function isNeedMargin(isGroup, idx) {
         margin += ' mt-14 mb-14'
     }
     return margin
+}
+function getSearchText(text) {
+    searchText.value = text
+
+    if (searchTimer) {
+        clearTimeout(searchTimer)
+    }
+    if (!text) {
+        searchDocuments.value = []
+        return
+    }
+    searchTimer = setTimeout(() => {
+        searchDocuments.value = []
+        searchDocumentByName(items.value)
+    }, 300)
+}
+function searchDocumentByName(contents = []) {
+    for (const content of contents) {
+        if (content.name.toLowerCase().includes(searchText.value.toLowerCase())) {
+            searchDocuments.value.push(content)
+        }
+        if (content.children && content.children.length) {
+            searchDocumentByName(content.children)
+        }
+    }
 }
 </script>
 <script>

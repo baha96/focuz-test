@@ -1,5 +1,5 @@
 <template>
-    <div class="default-separator" :style="{ height: height + 'px' }"></div>
+    <div class="default-separator" :style="{ height: height + 'px', backgroundColor: color }"></div>
 </template>
 
 <script>
@@ -10,6 +10,10 @@ export default {
             type: Number,
             default: 1,
         },
+        color: {
+            type: String,
+            default: "#DFE4EF",
+        },
     },
 }
 </script>
@@ -17,5 +21,4 @@ export default {
 <style scoped lang="sass">
 .default-separator
     width: 100%
-    background-color: $blue
 </style>
